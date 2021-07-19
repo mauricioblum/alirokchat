@@ -20,6 +20,7 @@ export default createGlobalStyle`
     font-weight: 600;
   }
   button {
+    all: unset;
     cursor: pointer;
   }
 `;
