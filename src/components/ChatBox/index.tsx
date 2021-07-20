@@ -1,7 +1,10 @@
 import React from 'react';
+import Chat from '../Chat';
+import ChatInput from '../ChatInput';
 import Dropdown from '../Dropdown';
 import MessageList from '../MessageList';
 import Search from '../Search';
+import Tracking from '../Tracking';
 
 import {
   Container,
@@ -28,10 +31,11 @@ const ChatBox: React.FC = () => {
         </MessagesContainer>
       </Conversations>
       <ChatContainer>
-        <h3>Chat</h3>
+        <Chat messages={[]} />
+        <ChatInput />
       </ChatContainer>
       <TrackingContainer>
-        <h3>Tracking</h3>
+        <Tracking />
       </TrackingContainer>
     </Container>
   );

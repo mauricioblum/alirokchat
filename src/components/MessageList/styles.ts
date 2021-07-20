@@ -18,7 +18,7 @@ export const MessageBox = styled.div<{ isSelected?: boolean }>`
 export const MessageText = styled.p`
   text-align: left;
   letter-spacing: 0px;
-  color: #748eb5;
+  color: ${(props) => props.theme.colors.primary};
 `;
 
 export const ContactImage = styled.img`

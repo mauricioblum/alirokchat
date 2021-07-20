@@ -1,6 +1,7 @@
 import React from 'react';
 import { FiSearch } from 'react-icons/fi';
-import { Container, StyledInput } from './styles';
+import Input from '../Input';
+import { Container } from './styles';
 
 interface SearchProps extends React.InputHTMLAttributes<HTMLInputElement> {
   onSearch?: (query: string) => void;
@@ -11,7 +12,7 @@ const Search = React.forwardRef<HTMLInputElement, SearchProps>(
     return (
       <Container>
         <FiSearch size={20} color="#748EB5" />
-        <StyledInput ref={ref} placeholder={placeholder} {...rest} />
+        <Input ref={ref} placeholder={placeholder} {...rest} />
       </Container>
     );
   },

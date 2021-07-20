@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
-  height: 100%;
   background: #ffffff 0% 0% no-repeat padding-box;
   box-shadow: 0px 3px 6px #396cce42;
   border: 1px solid #aebcd842;
@@ -13,7 +12,8 @@ export const Container = styled.div`
 
 export const Conversations = styled.div`
   flex: 1;
-  height: 80vh;
+  flex-basis: 0;
+  height: 100%;
   border-right: 1px solid #bac7da;
   position: relative;
 `;
@@ -41,11 +41,16 @@ export const MessagesContainer = styled.div`
 
 export const ChatContainer = styled.div`
   flex: 2;
-  padding: 54px 30px 0px 30px;
+  flex-basis: 0;
+  padding: 54px 0px 0px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 export const TrackingContainer = styled.div`
   flex: 1;
+  flex-basis: 0;
   border-left: 1px solid #bac7da;
   padding: 40px 30px 0px 30px;
 `;
