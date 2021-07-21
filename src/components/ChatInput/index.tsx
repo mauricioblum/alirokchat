@@ -11,10 +11,14 @@ import {
 
 export interface ChatInputProps extends InputProps {
   files?: string[];
+  onSendMessageClick?: () => void;
 }
 
 const ChatInput = React.forwardRef<HTMLInputElement, ChatInputProps>(
-  ({ placeholder = 'Type your message here...', ...rest }, ref) => {
+  (
+    { onSendMessageClick, placeholder = 'Type your message here...', ...rest },
+    ref,
+  ) => {
     return (
       <Wrapper>
         <Container>
@@ -24,7 +28,7 @@ const ChatInput = React.forwardRef<HTMLInputElement, ChatInputProps>(
             </FileButton>
             <Input ref={ref} placeholder={placeholder} {...rest} />
           </InputContainer>
-          <SendButton>Press Enter</SendButton>
+          <SendButton onClick={onSendMessageClick}>Press Enter</SendButton>
         </Container>
       </Wrapper>
     );

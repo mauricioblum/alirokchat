@@ -1,10 +1,9 @@
 export interface Message {
-  id: string;
-  user_uuid: string;
-  created_at: Date;
+  id: number;
+  user_uuid: number;
+  created_at: string;
   text: string;
 }
-
 export interface Shipment {
   id: number;
   tracking_number: string;

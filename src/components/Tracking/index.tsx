@@ -50,13 +50,13 @@ const Tracking: React.FC<TrackingProps> = ({ shipment }) => {
     {
       id: `${shipment.parcel_booking_uuid}-sender`,
       name: shipment.sender.full_name,
-      avatar: `https://i.pravatar.cc/150?u=${shipment.sender.id}`,
+      avatar: `https://i.pravatar.cc/150?u=${shipment.recipient.id}`,
       date: new Date(),
     },
     {
       id: `${shipment.parcel_booking_uuid}-recipient`,
       name: shipment.recipient.full_name,
-      avatar: `https://i.pravatar.cc/150?u=${shipment.recipient.id}`,
+      avatar: `https://i.pravatar.cc/150?u=${shipment.sender.id}`,
       date: new Date(),
     },
   ];

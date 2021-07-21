@@ -23,10 +23,13 @@ import {
 const ChatBox: React.FC = () => {
   const [conversationVisible, setConversationVisible] = useState(true);
   const [selectedShipmentId, setSelectedShipmentId] = useState(1);
+  const [inputValue, setInputValue] = useState('');
 
-  const { shipments } = useShipments();
+  const { shipments, postMessage } = useShipments();
 
   const { width: windowWidth } = useWindowSize();
+
+  const backButtonVisible = windowWidth ? windowWidth < 1015 : false;
 
   const messageListData: ChatMessage[] = useMemo(() => {
     return shipments.map((shipment) => ({
@@ -60,6 +63,23 @@ const ChatBox: React.FC = () => {
     setSelectedShipmentId(message.id);
   };
 
+  const handleSendMessage = () => {
+    console.log('send', inputValue);
+    if (inputValue === '') {
+      return;
+    }
+
+    const message = {
+      id: selectedChat.length + 3,
+      user_uuid: 102,
+      created_at: new Date().toISOString(),
+      text: inputValue,
+    };
+
+    postMessage(selectedShipmentId, message);
+    setInputValue('');
+  };
+
   useEffect(() => {
     if (windowWidth) {
       setConversationVisible(windowWidth > 1015);
@@ -84,12 +104,18 @@ const ChatBox: React.FC = () => {
         </MessagesContainer>
       </Conversations>
       <ChatContainer isVisible={messagesVisible}>
-        <ChatBackButton onClick={() => setConversationVisible(true)}>
-          <FiArrowLeft size={24} />
-          Messages
-        </ChatBackButton>
+        {backButtonVisible && (
+          <ChatBackButton onClick={() => setConversationVisible(true)}>
+            <FiArrowLeft size={24} />
+            Messages
+          </ChatBackButton>
+        )}
         <Chat messages={selectedChat} />
-        <ChatInput />
+        <ChatInput
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          onSendMessageClick={handleSendMessage}
+        />
       </ChatContainer>
       <TrackingContainer>
         <Tracking
