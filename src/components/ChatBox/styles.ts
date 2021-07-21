@@ -44,6 +44,7 @@ export const MessagesContainer = styled.div`
   padding-right: 4px;
   max-height: 100%;
   overflow-y: auto;
+  min-height: 650px;
   @media (max-width: 1015px) {
     max-height: 38vh;
   }
@@ -58,9 +59,9 @@ export const ChatContainer = styled.div<{ isVisible?: boolean }>`
   justify-content: space-between;
   position: relative;
   display: ${(props) => (props.isVisible ? 'flex' : 'none')};
-  @media (max-width: 1015px) {
+  /* @media (max-width: 1015px) {
     height: 38vh;
-  }
+  } */
 `;
 
 export const ChatBackButton = styled.button`

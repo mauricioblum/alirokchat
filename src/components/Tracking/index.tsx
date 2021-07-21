@@ -1,7 +1,8 @@
 import React from 'react';
 import { FaUps, FaFileDownload } from 'react-icons/fa';
+import { Shipment } from '../../services/models';
 import TrackingStatusIcons, { TrackingIcon } from '../TrackingStatusIcons';
-import TrackingTimeline, { TimelineEvent } from '../TrackingTimeline';
+import TrackingTimeline from '../TrackingTimeline';
 import {
   Container,
   Title,
@@ -12,21 +13,6 @@ import {
   ArchiveContainer,
   ArchiveButton,
 } from './styles';
-
-const timelineEvents: TimelineEvent[] = [
-  {
-    id: '1',
-    avatar: 'https://picsum.photos/id/1074/20/20',
-    date: new Date(),
-    name: 'Mariana Kopaczs',
-  },
-  {
-    id: '2',
-    avatar: 'https://picsum.photos/id/1073/20/20',
-    date: new Date(),
-    name: 'Mario Fabio Lechka',
-  },
-];
 
 const trackingIcons: TrackingIcon[] = [
   {
@@ -51,17 +37,43 @@ const trackingIcons: TrackingIcon[] = [
   },
 ];
 
-const Tracking: React.FC = () => {
+interface TrackingProps {
+  shipment?: Shipment;
+}
+
+const Tracking: React.FC<TrackingProps> = ({ shipment }) => {
+  if (!shipment) {
+    return null;
+  }
+
+  const timelineEvents = [
+    {
+      id: `${shipment.parcel_booking_uuid}-sender`,
+      name: shipment.sender.full_name,
+      avatar: `https://i.pravatar.cc/150?u=${shipment.sender.id}`,
+      date: new Date(),
+    },
+    {
+      id: `${shipment.parcel_booking_uuid}-recipient`,
+      name: shipment.recipient.full_name,
+      avatar: `https://i.pravatar.cc/150?u=${shipment.recipient.id}`,
+      date: new Date(),
+    },
+  ];
+
   return (
     <Container>
-      <Title>In transit</Title>
+      <Title>{shipment.status}</Title>
       <PackageContainer>
         <PackageImage>
           <FaUps size={24} />
         </PackageImage>
         <div>
-          <TrackingCode>000000000000</TrackingCode>
-          <PackageInfo>1 Box | 500 gr | Perfume</PackageInfo>
+          <TrackingCode>{shipment.tracking_number}</TrackingCode>
+          <PackageInfo>
+            {shipment.box.quantity} Box | {shipment.box.weight} gr |{' '}
+            {shipment.box.description}
+          </PackageInfo>
         </div>
       </PackageContainer>
       <TrackingTimeline events={timelineEvents} />

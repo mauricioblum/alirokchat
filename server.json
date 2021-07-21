@@ -1,0 +1,91 @@
+{
+  "shipments": [
+    {
+      "id": 1,
+      "tracking_number": "1ZY242R50395270413",
+      "parcel_booking_uuid": "2d931ba6-a0bc-4299-9a3e-0f9ff0041947",
+      "status": "In transit",
+      "box": {
+        "quantity": 1,
+        "weight": 500,
+        "description": "Perfume"
+      },
+      "chat_data": [
+        {
+          "id": 2,
+          "created_at": "Thu Jul 15 2021 17:29:25 GMT-0300",
+          "text": "Hello there! I need your help",
+          "user_uuid": 102
+        },
+        {
+          "id": 3,
+          "created_at": "Thu Jul 15 2021 22:19:00 GMT-0300",
+          "text": "Hello, how can I help?",
+          "user_uuid": 111
+        }
+      ],
+      "recipient": { "id": 13, "full_name": "Dina" },
+      "sender": { "id": 14, "full_name": "Bob" }
+    },
+    {
+      "id": 15,
+      "tracking_number": "1ZY242R5039527485",
+      "parcel_booking_uuid": "785b709e-ea5f-4046-8c53-a4c9bf2f36a6",
+      "status": "Warehouse",
+      "box": {
+        "quantity": 3,
+        "weight": 1740,
+        "description": "Furniture"
+      },
+      "chat_data": [
+        {
+          "id": 4,
+          "created_at": "Tue Jul 13 2021 17:29:25 GMT-0300",
+          "text": "Hello, how are you?",
+          "user_uuid": 548
+        },
+        {
+          "id": 5,
+          "created_at": "Wed Jul 14 2021 06:01:02 GMT-0300",
+          "text": "Hello, how can I help you?",
+          "user_uuid": 157
+        },
+        {
+          "id": 6,
+          "created_at": "Wed Jul 14 2021 06:01:02 GMT-0300",
+          "text": "I need to get my package status",
+          "user_uuid": 548
+        }
+      ],
+      "recipient": { "id": 11, "full_name": "Joanna" },
+      "sender": { "id": 12, "full_name": "David" }
+    },
+    {
+      "id": 16,
+      "tracking_number": "1ZY242R5039895617",
+      "parcel_booking_uuid": "07debe4e-1cdc-4e7b-936e-2f2fe2e43be7",
+      "status": "To deliver",
+      "box": {
+        "quantity": 6,
+        "weight": 4000,
+        "description": "Food"
+      },
+      "chat_data": [
+        {
+          "id": 7,
+          "created_at": "Thu Jul 14 2021 20:22:08 GMT-0300",
+          "text": "Hello, my name is Dylan",
+          "user_uuid": 478
+        },
+        {
+          "id": 8,
+          "created_at": "Fri Jul 15 2021 01:01:52 GMT-0300",
+          "text": "How can I help you Dylan?",
+          "user_uuid": 454
+        }
+      ],
+      "recipient": { "id": 9, "full_name": "Wendy" },
+      "sender": { "id": 10, "full_name": "Dylan" }
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { FiArrowLeft } from 'react-icons/fi';
 import { useWindowSize } from '../../hooks';
+import { useShipments } from '../../hooks/shipments';
 import Chat from '../Chat';
 import ChatInput from '../ChatInput';
 import Dropdown from '../Dropdown';
@@ -21,8 +22,19 @@ import {
 
 const ChatBox: React.FC = () => {
   const [conversationVisible, setConversationVisible] = useState(true);
+  const [selectedShipmentId, setSelectedShipmentId] = useState(1);
+
+  const { shipments } = useShipments();
 
   const { width: windowWidth } = useWindowSize();
+
+  const messageListData: ChatMessage[] = useMemo(() => {
+    return shipments.map((shipment) => ({
+      id: shipment.id,
+      message: shipment.chat_data[0].text,
+      profileImg: `https://i.pravatar.cc/150?u=${shipment.chat_data[0].user_uuid}`,
+    }));
+  }, [shipments]);
 
   const messagesVisible = useMemo(() => {
     if (windowWidth) {
@@ -31,11 +43,21 @@ const ChatBox: React.FC = () => {
     return true;
   }, [conversationVisible, windowWidth]);
 
+  const selectedChat = useMemo(() => {
+    const selectedShipment = shipments.find(
+      (shipment) => shipment.id === selectedShipmentId,
+    );
+    if (selectedShipment) {
+      return selectedShipment.chat_data;
+    }
+    return [];
+  }, [selectedShipmentId, shipments]);
+
   const handleChatMessageClick = (message: ChatMessage) => {
     if (windowWidth && windowWidth < 1015) {
       setConversationVisible(false);
     }
-    console.log('message', message);
+    setSelectedShipmentId(message.id);
   };
 
   useEffect(() => {
@@ -54,7 +76,11 @@ const ChatBox: React.FC = () => {
           <Search />
         </SearchContainer>
         <MessagesContainer>
-          <MessageList onChatMessageClick={handleChatMessageClick} />
+          <MessageList
+            messages={messageListData}
+            selectedMessageId={selectedShipmentId}
+            onChatMessageClick={handleChatMessageClick}
+          />
         </MessagesContainer>
       </Conversations>
       <ChatContainer isVisible={messagesVisible}>
@@ -62,11 +88,15 @@ const ChatBox: React.FC = () => {
           <FiArrowLeft size={24} />
           Messages
         </ChatBackButton>
-        <Chat messages={[]} />
+        <Chat messages={selectedChat} />
         <ChatInput />
       </ChatContainer>
       <TrackingContainer>
-        <Tracking />
+        <Tracking
+          shipment={shipments.find(
+            (shipment) => shipment.id === selectedShipmentId,
+          )}
+        />
       </TrackingContainer>
     </Container>
   );

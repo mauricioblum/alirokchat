@@ -27,6 +27,7 @@
   },
   "rules": {
     "linebreak-style": "off",
+    "no-console": "off",
     "react/require-default-props": "off",
     "import/prefer-default-export": "off",
     "react/prop-types": "off",
