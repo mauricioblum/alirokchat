@@ -29,6 +29,9 @@ export const MessageBox = styled.div<{ messageAlign?: 'left' | 'right' }>`
     order: ${(props) => (props.messageAlign === 'right' ? 1 : 2)};
   }
   max-width: 75%;
+  @media (max-width: 565px) {
+    max-width: 90%;
+  }
 `;
 
 export const UserImage = styled.img`
@@ -38,6 +41,9 @@ export const UserImage = styled.img`
   width: 50px;
   height: 50px;
   margin: 0px 15px;
+  @media (max-width: 565px) {
+    margin: 0;
+  }
 `;
 
 export const MessageText = styled.p`

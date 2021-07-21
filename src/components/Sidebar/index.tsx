@@ -14,24 +14,32 @@ const Sidebar: React.FC = () => {
 
   return (
     <Container>
-      <SidebarItem>
-        <CgMenuLeft color={iconProperties.color} size={iconProperties.size} />
-      </SidebarItem>
-      <SidebarItem>
-        <AiOutlineBlock
-          color={iconProperties.color}
-          size={iconProperties.size}
+      <div>
+        <SidebarItem>
+          <CgMenuLeft color={iconProperties.color} size={iconProperties.size} />
+        </SidebarItem>
+        <SidebarItem>
+          <AiOutlineBlock
+            color={iconProperties.color}
+            size={iconProperties.size}
+          />
+        </SidebarItem>
+        <SidebarItem isActive>
+          <FiBox color={iconProperties.color} size={iconProperties.size} />
+        </SidebarItem>
+        <SidebarItem>
+          <MdPeopleOutline
+            color={iconProperties.color}
+            size={iconProperties.size}
+          />
+        </SidebarItem>
+      </div>
+      <div className="profile">
+        <img
+          alt="Avatar"
+          src="https://avataaars.io/?avatarStyle=Transparent&topType=LongHairDreads&accessoriesType=Blank&hairColor=Red&facialHairType=Blank&clotheType=CollarSweater&clotheColor=PastelRed&eyeType=Side&eyebrowType=UpDownNatural&mouthType=Twinkle&skinColor=Yellow"
         />
-      </SidebarItem>
-      <SidebarItem isActive>
-        <FiBox color={iconProperties.color} size={iconProperties.size} />
-      </SidebarItem>
-      <SidebarItem>
-        <MdPeopleOutline
-          color={iconProperties.color}
-          size={iconProperties.size}
-        />
-      </SidebarItem>
+      </div>
     </Container>
   );
 };

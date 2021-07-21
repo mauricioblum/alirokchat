@@ -26,7 +26,7 @@ const Chat: React.FC<ChatProps> = ({ messages }) => {
       <MessageContainer messageAlign="left">
         <MessageDate>Jul 2, 2021 9:52 pm</MessageDate>
         <MessageBox messageAlign="left">
-          <UserImage src="https://picsum.photos/50/50" />
+          <UserImage src="https://avataaars.io/?avatarStyle=Transparent&topType=NoHair&accessoriesType=Wayfarers&facialHairType=BeardMajestic&facialHairColor=Brown&clotheType=Hoodie&clotheColor=Heather&eyeType=Side&eyebrowType=UpDown&mouthType=Smile&skinColor=Pale" />
           <MessageText>
             Hi, yes, the revised documents need to be delivered today before 5pm
           </MessageText>
@@ -35,7 +35,7 @@ const Chat: React.FC<ChatProps> = ({ messages }) => {
       <MessageContainer messageAlign="right">
         <MessageDate>Jul 2, 2021 9:55 pm</MessageDate>
         <MessageBox messageAlign="right">
-          <UserImage src="https://picsum.photos/50/51" />
+          <UserImage src="https://avataaars.io/?avatarStyle=Transparent&topType=LongHairBigHair&accessoriesType=Blank&hairColor=Brown&facialHairType=Blank&clotheType=ShirtVNeck&clotheColor=Red&eyeType=EyeRoll&eyebrowType=Default&mouthType=Default&skinColor=Brown" />
           <MessageText>Ok, working on it , thanks</MessageText>
         </MessageBox>
       </MessageContainer>

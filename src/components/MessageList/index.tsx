@@ -2,12 +2,20 @@ import React from 'react';
 
 import { ContactImage, Container, MessageBox, MessageText } from './styles';
 
-const messages = [
+export interface ChatMessage {
+  id: number;
+  message: string;
+  profileImg: string;
+  selected: boolean;
+}
+
+const messages: ChatMessage[] = [
   {
     id: 1,
     message:
       'Hi, yes, the revised documents need to be delivered today before 5 pm',
-    profileImg: 'https://picsum.photos/50/50',
+    profileImg:
+      'https://avataaars.io/?avatarStyle=Transparent&topType=NoHair&accessoriesType=Wayfarers&facialHairType=BeardMajestic&facialHairColor=Brown&clotheType=Hoodie&clotheColor=Heather&eyeType=Side&eyebrowType=UpDown&mouthType=Smile&skinColor=Pale',
     selected: true,
   },
   {
@@ -75,11 +83,19 @@ const messages = [
   },
 ];
 
-const MessageList: React.FC = () => {
+interface MessageListProps {
+  onChatMessageClick: (message: ChatMessage) => void;
+}
+
+const MessageList: React.FC<MessageListProps> = ({ onChatMessageClick }) => {
   return (
     <Container>
       {messages.map((message) => (
-        <MessageBox key={message.id} isSelected={message.selected}>
+        <MessageBox
+          key={message.id}
+          isSelected={message.selected}
+          onClick={() => onChatMessageClick(message)}
+        >
           <ContactImage src={message.profileImg} alt="Contact" />
           <MessageText>{message.message}</MessageText>
         </MessageBox>

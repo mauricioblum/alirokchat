@@ -12,4 +12,7 @@ export const Content = styled.div`
   width: 100%;
   height: 100%;
   padding: 35px 2px 60px 60px;
+  @media (max-width: 760px) {
+    padding: 35px 16px;
+  }
 `;

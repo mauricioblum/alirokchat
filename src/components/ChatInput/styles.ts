@@ -22,6 +22,9 @@ export const InputContainer = styled.div`
   > input {
     width: 90%;
     font-size: 18px;
+    @media (max-width: 565px) {
+      font-size: 16px;
+    }
   }
   padding-right: 16px;
 `;
@@ -31,5 +34,8 @@ export const FileButton = styled.button``;
 export const SendButton = styled.button`
   color: ${(props) => props.theme.colors.primary};
   font-size: 18px;
+  @media (max-width: 565px) {
+    font-size: 16px;
+  }
   flex-shrink: 0;
 `;

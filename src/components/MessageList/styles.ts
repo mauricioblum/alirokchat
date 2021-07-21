@@ -7,6 +7,7 @@ export const MessageBox = styled.div<{ isSelected?: boolean }>`
   width: 100%;
   min-height: 110px;
   padding: 0px 4px;
+  cursor: pointer;
   ${(props) =>
     props.isSelected &&
     css`

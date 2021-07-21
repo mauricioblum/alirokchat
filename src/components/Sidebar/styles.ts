@@ -8,6 +8,25 @@ export const Container = styled.aside`
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+
+  div.profile {
+    margin-top: auto;
+    padding: 20px 0px 0px 0px;
+    border-top: 1px solid #ccc;
+
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+    }
+
+    @media (max-width: 1015px) {
+      position: fixed;
+      bottom: 34px;
+      left: 7px;
+    }
+  }
 `;
 
 export const SidebarItem = styled.button<{ isActive?: boolean }>`
