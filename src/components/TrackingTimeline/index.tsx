@@ -22,7 +22,13 @@ const TrackingTimeline: React.FC<TrackingTimelineProps> = ({ events }) => {
             <img width="20" height="20" src={event.avatar} alt="Avatar" />
             <div className="info">
               <p className="eventName">{event.name}</p>
-              <p className="eventDate">{event.date.toLocaleDateString()}</p>
+              <p className="eventDate">
+                {event.date.toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })}
+              </p>
             </div>
           </div>
         );

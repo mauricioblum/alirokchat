@@ -23,7 +23,13 @@ const Chat: React.FC<ChatProps> = ({ messages }) => {
           messageAlign={message.id % 2 !== 0 ? 'left' : 'right'}
         >
           <MessageDate>
-            {new Date(message.created_at).toLocaleDateString()}
+            {new Date(message.created_at).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+              hour: '2-digit',
+              minute: '2-digit',
+            })}
           </MessageDate>
           <MessageBox messageAlign={message.id % 2 !== 0 ? 'left' : 'right'}>
             <UserImage
