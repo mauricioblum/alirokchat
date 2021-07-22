@@ -4,8 +4,10 @@ export interface Message {
   created_at: string;
   text: string;
 }
+export type PackageType = 'parcel' | 'air' | 'land' | 'sea';
 export interface Shipment {
   id: number;
+  type: PackageType;
   tracking_number: string;
   parcel_booking_uuid: string;
   status: string;

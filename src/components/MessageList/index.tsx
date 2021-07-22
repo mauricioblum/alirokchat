@@ -1,11 +1,15 @@
 import React from 'react';
+import { PackageType } from '../../services/models';
 
 import { ContactImage, Container, MessageBox, MessageText } from './styles';
 
 export interface ChatMessage {
   id: number;
   message: string;
+  type: PackageType;
+  conversation: string[];
   profileImg: string;
+  username: string;
 }
 
 interface MessageListProps {

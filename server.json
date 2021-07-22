@@ -3,6 +3,7 @@
     {
       "id": 1,
       "tracking_number": "1ZY242R50395270413",
+      "type": "parcel",
       "parcel_booking_uuid": "2d931ba6-a0bc-4299-9a3e-0f9ff0041947",
       "status": "In transit",
       "box": {
@@ -24,12 +25,19 @@
           "user_uuid": 111
         }
       ],
-      "recipient": { "id": 13, "full_name": "Dina" },
-      "sender": { "id": 14, "full_name": "Bob" }
+      "recipient": {
+        "id": 13,
+        "full_name": "Dina"
+      },
+      "sender": {
+        "id": 14,
+        "full_name": "Bob"
+      }
     },
     {
       "id": 15,
       "tracking_number": "1ZY242R5039527485",
+      "type": "parcel",
       "parcel_booking_uuid": "785b709e-ea5f-4046-8c53-a4c9bf2f36a6",
       "status": "Warehouse",
       "box": {
@@ -57,12 +65,19 @@
           "user_uuid": 548
         }
       ],
-      "recipient": { "id": 11, "full_name": "Joanna" },
-      "sender": { "id": 12, "full_name": "David" }
+      "recipient": {
+        "id": 11,
+        "full_name": "Joanna"
+      },
+      "sender": {
+        "id": 12,
+        "full_name": "David"
+      }
     },
     {
       "id": 16,
       "tracking_number": "1ZY242R5039895617",
+      "type": "parcel",
       "parcel_booking_uuid": "07debe4e-1cdc-4e7b-936e-2f2fe2e43be7",
       "status": "To deliver",
       "box": {
@@ -84,8 +99,218 @@
           "user_uuid": 454
         }
       ],
-      "recipient": { "id": 9, "full_name": "Wendy" },
-      "sender": { "id": 10, "full_name": "Dylan" }
+      "recipient": {
+        "id": 9,
+        "full_name": "Wendy"
+      },
+      "sender": {
+        "id": 10,
+        "full_name": "Dylan"
+      }
+    },
+    {
+      "id": 17,
+      "tracking_number": "1ZY242F50395230413",
+      "type": "air",
+      "parcel_booking_uuid": "2d931ba6-a0bc-4299-9a4e-0f9ff0041947",
+      "status": "In transit",
+      "box": {
+        "quantity": 1,
+        "weight": 500,
+        "description": "Snickers"
+      },
+      "chat_data": [
+        {
+          "id": 2,
+          "created_at": "Thu Jul 15 2021 17:29:25 GMT-0300",
+          "text": "Hello there! I need your help with something",
+          "user_uuid": 109
+        },
+        {
+          "id": 3,
+          "created_at": "Thu Jul 15 2021 22:19:00 GMT-0300",
+          "text": "Hello, how can I help?",
+          "user_uuid": 154
+        }
+      ],
+      "recipient": {
+        "id": 17,
+        "full_name": "Marley"
+      },
+      "sender": {
+        "id": 19,
+        "full_name": "Charles"
+      }
+    },
+    {
+      "id": 18,
+      "tracking_number": "3DY242F50395230413",
+      "type": "air",
+      "parcel_booking_uuid": "2d231ba6-a0bc-4299-9a4e-0f9ff0041947",
+      "status": "In transit",
+      "box": {
+        "quantity": 3,
+        "weight": 500,
+        "description": "Candy"
+      },
+      "chat_data": [
+        {
+          "id": 2,
+          "created_at": "Thu Jul 15 2021 18:29:25 GMT-0300",
+          "text": "Hello there! I need your help with something",
+          "user_uuid": 121
+        },
+        {
+          "id": 3,
+          "created_at": "Thu Jul 17 2021 22:19:00 GMT-0300",
+          "text": "Hello, how can I help?",
+          "user_uuid": 34
+        }
+      ],
+      "recipient": {
+        "id": 22,
+        "full_name": "Richard"
+      },
+      "sender": {
+        "id": 23,
+        "full_name": "Monica"
+      }
+    },
+    {
+      "id": 19,
+      "tracking_number": "8DY242F50395230413",
+      "type": "land",
+      "parcel_booking_uuid": "2d231ba6-a0bc-4499-9a4e-0f9ff0d41947",
+      "status": "In transit",
+      "box": {
+        "quantity": 3,
+        "weight": 500,
+        "description": "Other"
+      },
+      "chat_data": [
+        {
+          "id": 2,
+          "created_at": "Thu Jul 15 2021 18:29:25 GMT-0300",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+          "user_uuid": 121
+        },
+        {
+          "id": 3,
+          "created_at": "Thu Jul 17 2021 22:19:00 GMT-0300",
+          "text": "Viverra aliquet eget sit amet tellus?",
+          "user_uuid": 34
+        }
+      ],
+      "recipient": {
+        "id": 24,
+        "full_name": "Ross"
+      },
+      "sender": {
+        "id": 25,
+        "full_name": "Rachel"
+      }
+    },
+    {
+      "id": 20,
+      "tracking_number": "SDFN44322112543",
+      "type": "land",
+      "parcel_booking_uuid": "2d231ba6-a0bc-4499-9a4e-0f9ff0d41947",
+      "status": "In transit",
+      "box": {
+        "quantity": 1,
+        "weight": 500,
+        "description": "Toys"
+      },
+      "chat_data": [
+        {
+          "id": 2,
+          "created_at": "Thu Jul 15 2021 19:29:25 GMT-0300",
+          "text": "Consectetur adipiscing elit",
+          "user_uuid": 177
+        },
+        {
+          "id": 3,
+          "created_at": "Thu Jul 17 2021 22:19:00 GMT-0300",
+          "text": "Viverra aliquet!",
+          "user_uuid": 22
+        }
+      ],
+      "recipient": {
+        "id": 26,
+        "full_name": "John Dorian"
+      },
+      "sender": {
+        "id": 27,
+        "full_name": "Elliot"
+      }
+    },
+    {
+      "id": 21,
+      "tracking_number": "SDFN44322112543",
+      "type": "land",
+      "parcel_booking_uuid": "2d231ba6-a0bc-4499-9a4e-0f9ff0d41947",
+      "status": "In transit",
+      "box": {
+        "quantity": 5,
+        "weight": 5000,
+        "description": "Electronics"
+      },
+      "chat_data": [
+        {
+          "id": 2,
+          "created_at": "Thu Jul 22 2021 19:29:25 GMT-0300",
+          "text": "Turpis massa tincidunt dui ut ornare. Imperdiet nulla malesuada pellentesque elit eget gravida cum. Praesent semper feugiat nibh sed pulvinar proin.",
+          "user_uuid": 177
+        },
+        {
+          "id": 3,
+          "created_at": "Thu Jul 26 2021 22:19:00 GMT-0300",
+          "text": "Volutpat odio facilisis mauris sit amet massa vitae. Egestas egestas fringilla phasellus faucibus scelerisque",
+          "user_uuid": 22
+        }
+      ],
+      "recipient": {
+        "id": 28,
+        "full_name": "Chris"
+      },
+      "sender": {
+        "id": 29,
+        "full_name": "Carla"
+      }
+    },
+    {
+      "id": 22,
+      "tracking_number": "SDFN44322112543",
+      "type": "land",
+      "parcel_booking_uuid": "2d231ba6-a0bc-4499-9a4e-0f9ff0d41947",
+      "status": "In transit",
+      "box": {
+        "quantity": 1,
+        "weight": 5000,
+        "description": "Jewels"
+      },
+      "chat_data": [
+        {
+          "id": 2,
+          "created_at": "Thu Jul 22 2021 19:29:25 GMT-0300",
+          "text": "Praesent semper feugiat nibh sed pulvina?.",
+          "user_uuid": 55
+        },
+        {
+          "id": 3,
+          "created_at": "Thu Jul 26 2021 22:19:00 GMT-0300",
+          "text": "Egestas egestas fringilla phasellus faucibus scelerisque",
+          "user_uuid": 7
+        }
+      ],
+      "recipient": {
+        "id": 30,
+        "full_name": "Perry"
+      },
+      "sender": {
+        "id": 31,
+        "full_name": "Jordan"
+      }
     }
   ]
 }

@@ -2,6 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { FiArrowLeft } from 'react-icons/fi';
 import { useWindowSize } from '../../hooks';
 import { useShipments } from '../../hooks/shipments';
+import { PackageType } from '../../services/models';
 import Chat from '../Chat';
 import ChatInput from '../ChatInput';
 import Dropdown from '../Dropdown';
@@ -24,6 +25,8 @@ const ChatBox: React.FC = () => {
   const [conversationVisible, setConversationVisible] = useState(true);
   const [selectedShipmentId, setSelectedShipmentId] = useState(1);
   const [inputValue, setInputValue] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedType, setSelectedType] = useState<PackageType>('parcel');
 
   const { shipments, postMessage } = useShipments();
 
@@ -34,10 +37,28 @@ const ChatBox: React.FC = () => {
   const messageListData: ChatMessage[] = useMemo(() => {
     return shipments.map((shipment) => ({
       id: shipment.id,
+      type: shipment.type,
       message: shipment.chat_data[0].text,
+      conversation: shipment.chat_data.map((c) => c.text),
       profileImg: `https://i.pravatar.cc/150?u=${shipment.chat_data[0].user_uuid}`,
+      username: shipment.sender.full_name,
     }));
   }, [shipments]);
+
+  const messageFilteredData = useMemo(() => {
+    return messageListData
+      .filter((messages) => messages.type === selectedType)
+      .filter(
+        (data) =>
+          data.username
+            .trim()
+            .toLowerCase()
+            .includes(searchTerm.trim().toLowerCase()) ||
+          data.conversation.find((text) =>
+            text.trim().toLowerCase().includes(searchTerm.trim().toLowerCase()),
+          ),
+      );
+  }, [messageListData, searchTerm, selectedType]);
 
   const messagesVisible = useMemo(() => {
     if (windowWidth) {
@@ -64,7 +85,6 @@ const ChatBox: React.FC = () => {
   };
 
   const handleSendMessage = () => {
-    console.log('send', inputValue);
     if (inputValue === '') {
       return;
     }
@@ -86,18 +106,26 @@ const ChatBox: React.FC = () => {
     }
   }, [windowWidth]);
 
+  const handleSelectDropDown = (type: string) => {
+    setSelectedType(type as PackageType);
+    setSearchTerm('');
+  };
+
   return (
     <Container>
       <Conversations isVisible={conversationVisible}>
         <DropdownContainer>
-          <Dropdown />
+          <Dropdown onSelect={handleSelectDropDown} />
         </DropdownContainer>
         <SearchContainer>
-          <Search />
+          <Search
+            value={searchTerm}
+            onSearch={(query) => setSearchTerm(query)}
+          />
         </SearchContainer>
         <MessagesContainer>
           <MessageList
-            messages={messageListData}
+            messages={messageFilteredData}
             selectedMessageId={selectedShipmentId}
             onChatMessageClick={handleChatMessageClick}
           />

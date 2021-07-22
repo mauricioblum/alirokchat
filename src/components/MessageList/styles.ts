@@ -20,6 +20,9 @@ export const MessageText = styled.p`
   text-align: left;
   letter-spacing: 0px;
   color: ${(props) => props.theme.colors.primary};
+  max-height: 42px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const ContactImage = styled.img`

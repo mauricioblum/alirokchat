@@ -38,13 +38,24 @@ const customStyles: StylesConfig<{ label: string; value: string }, boolean> = {
   },
 };
 
-const Dropdown: React.FC = () => {
+interface DropdownProps {
+  onSelect: (value: string) => void;
+}
+
+const Dropdown: React.FC<DropdownProps> = ({ onSelect }) => {
   return (
     <Container>
       <Select
         options={options}
         styles={customStyles}
         defaultValue={{ value: 'parcel', label: 'Parcel Shipments' }}
+        onChange={(option, actionType) => {
+          return (
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            actionType.action === 'select-option' && onSelect(option?.value)
+          );
+        }}
       />
     </Container>
   );

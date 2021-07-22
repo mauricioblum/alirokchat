@@ -12,7 +12,12 @@ const Search = React.forwardRef<HTMLInputElement, SearchProps>(
     return (
       <Container>
         <FiSearch size={20} color="#748EB5" />
-        <Input ref={ref} placeholder={placeholder} {...rest} />
+        <Input
+          ref={ref}
+          placeholder={placeholder}
+          {...rest}
+          onChange={(e) => onSearch?.(e.target.value)}
+        />
       </Container>
     );
   },
