@@ -21,6 +21,12 @@ import {
   TrackingContainer,
 } from './styles';
 
+function getRandomInt(min: number, max: number) {
+  const minRound = Math.ceil(min);
+  const maxRound = Math.floor(max);
+  return Math.floor(Math.random() * (maxRound - minRound) + minRound);
+}
+
 const ChatBox: React.FC = () => {
   const [conversationVisible, setConversationVisible] = useState(true);
   const [selectedShipmentId, setSelectedShipmentId] = useState(1);
@@ -90,7 +96,7 @@ const ChatBox: React.FC = () => {
     }
 
     const message = {
-      id: selectedChat.length + 3,
+      id: selectedChat.length + getRandomInt(30, 999999),
       user_uuid: 102,
       created_at: new Date().toISOString(),
       text: inputValue,
